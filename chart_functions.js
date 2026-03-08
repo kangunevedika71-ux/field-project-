@@ -41,13 +41,3 @@ function createCharts(instagram, youtube, whatsapp, yes, no, cgpa, social) {
         }
     });
 }
-
-    // Distraction pie chart (unchanged)
-    new Chart(document.getElementById("distractionChart"), {
-        type: "pie",
-        data: {
-            labels: ["Distracted", "Not Distracted"],
-            datasets: [{ data: [yes, no] }]
-        }
-    });
-
