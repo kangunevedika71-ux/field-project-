@@ -50,4 +50,4 @@ function createCharts(instagram, youtube, whatsapp, yes, no, cgpa, social) {
             datasets: [{ data: [yes, no] }]
         }
     });
-}
+
