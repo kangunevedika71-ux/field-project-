@@ -1,15 +1,16 @@
-function createCharts(instagram, youtube, whatsapp, yes, no, cgpa, social) {
-    // Platform doughnut chart
-    new Chart(document.getElementById("platformChart"), {
-        type: "doughnut",
-        data: {
-            labels: ["Instagram", "YouTube", "WhatsApp"],
-            datasets: [{
-                data: [instagram, youtube, whatsapp],
-                backgroundColor: ["#E1306C", "#FF0000", "#25D366"]
-            }]
-        }
-    });
+let existingChart = Chart.getChart("platformChart");
+if (existingChart) existingChart.destroy();
+
+new Chart(document.getElementById("platformChart"), {
+    type: "doughnut",
+    data: {
+        labels: ["Instagram", "YouTube", "WhatsApp"],
+        datasets: [{
+            data: [Number(instagram), Number(youtube), Number(whatsapp)],
+            backgroundColor: ["#E1306C", "#FF0000", "#25D366"]
+        }]
+    }
+});
 
     // CGPA vs Social Media Hours (scatter plot) – now green
     new Chart(document.getElementById("cgpaChart"), {
