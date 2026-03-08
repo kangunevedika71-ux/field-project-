@@ -55,6 +55,17 @@ padding:20px;
 border-radius:10px;
 box-shadow:0 0 10px rgba(0,0,0,0.5);
 }
+nav {
+  display: flex;
+  gap: 30px;              /* Space between links – adjust this value */
+  justify-content: center; /* Optional: center the links horizontally */
+}
+
+nav a {
+  color: white;            /* Makes the links visible on dark background */
+  text-decoration: none;   /* Removes underline */
+  font-weight: bold;       /* Makes the text stand out */
+}
 
 .btn{
 display:inline-block;
