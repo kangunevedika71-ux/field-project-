@@ -1,38 +1,45 @@
-let existingChart = Chart.getChart("platformChart");
-if (existingChart) existingChart.destroy();
-
-new Chart(document.getElementById("platformChart"), {
-    type: "doughnut",
-    data: {
-        labels: ["Instagram", "YouTube", "WhatsApp"],
-        datasets: [{
-            data: [Number(instagram), Number(youtube), Number(whatsapp)],
-            backgroundColor: ["#E1306C", "#FF0000", "#25D366"]
-        }]
-    }
-});
-
-    // CGPA vs Social Media Hours (scatter plot) – now green
-    new Chart(document.getElementById("cgpaChart"), {
-        type: "scatter",
+function createCharts(instagram, youtube, whatsapp, yes, no, cgpa, social) {
+    // Platform doughnut chart (unchanged)
+    new Chart(document.getElementById("platformChart"), {
+        type: "doughnut",
         data: {
+            labels: ["Instagram", "YouTube", "WhatsApp"],
             datasets: [{
-                label: "Students",
-                data: cgpa.map((value, index) => ({ x: value, y: social[index] })),
-                backgroundColor: "green",
+                data: [Number(instagram), Number(youtube), Number(whatsapp)],
+                backgroundColor: ["#E1306C", "#FF0000", "#25D366"]
+            }]
+        }
+    });
+
+    // CGPA vs Social Media Usage (now a BAR chart)
+    new Chart(document.getElementById("cgpaChart"), {
+        type: "bar",
+        data: {
+            labels: cgpa.map(value => value.toString()), // CGPA values as labels
+            datasets: [{
+                label: "Social Media Hours",
+                data: social,
+                backgroundColor: "green",          // Change color here if desired
                 borderColor: "darkgreen",
                 borderWidth: 1
             }]
         },
         options: {
             scales: {
-                x: { title: { display: true, text: "CGPA" } },
-                y: { title: { display: true, text: "Hours per Day" } }
+                x: { 
+                    title: { display: true, text: "CGPA" },
+                    // If you have many bars, you can rotate labels:
+                    // ticks: { maxRotation: 45, minRotation: 45 }
+                },
+                y: { 
+                    title: { display: true, text: "Hours per Day" },
+                    beginAtZero: true
+                }
             }
         }
     });
 
-    // Distraction pie chart
+    // Distraction pie chart (unchanged)
     new Chart(document.getElementById("distractionChart"), {
         type: "pie",
         data: {
