@@ -13,31 +13,24 @@ function createCharts(instagram, youtube, whatsapp, yes, no, cgpa, social) {
 
     // CGPA vs Social Media Usage (now a BAR chart)
     new Chart(document.getElementById("cgpaChart"), {
-        type: "bar",
-        data: {
-            labels: cgpa.map(value => value.toString()), // CGPA values as labels
-            datasets: [{
-                label: "Social Media Hours",
-                data: social,
-                backgroundColor: "green",          // Change color here if desired
-                borderColor: "darkgreen",
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                x: { 
-                    title: { display: true, text: "CGPA" },
-                    // If you have many bars, you can rotate labels:
-                    // ticks: { maxRotation: 45, minRotation: 45 }
-                },
-                y: { 
-                    title: { display: true, text: "Hours per Day" },
-                    beginAtZero: true
-                }
-            }
+    type: "bar",
+    data: {
+        labels: cgpa.map(value => value.toString()), // CGPA as labels
+        datasets: [{
+            label: "Social Media Hours",
+            data: social,
+            backgroundColor: "green",
+            borderColor: "darkgreen",
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            x: { title: { display: true, text: "CGPA" } },
+            y: { title: { display: true, text: "Hours per Day" }, beginAtZero: true }
         }
-    });
+    }
+});
 
     // Distraction pie chart (unchanged)
     new Chart(document.getElementById("distractionChart"), {
