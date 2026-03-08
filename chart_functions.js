@@ -1,12 +1,13 @@
-function createCharts(instagram, youtube, whatsapp, yes, no, cgpa, social) {
-  // Platform pie chart
-  new Chart(document.getElementById("platformChart"), {
-    type: "pie",
+new Chart(document.getElementById("platformChart"), {
+    type: "doughnut",
     data: {
-      labels: ["Instagram", "YouTube", "WhatsApp"],
-      datasets: [{ data: [instagram, youtube, whatsapp] }]
+        labels: ["Instagram", "YouTube", "WhatsApp"],
+        datasets: [{
+            data: [instagram, youtube, whatsapp],
+            backgroundColor: ["#E1306C", "#FF0000", "#25D366"]
+        }]
     }
-  });
+});
 
   // CGPA vs Social Media Hours (scatter plot)
   new Chart(document.getElementById("cgpaChart"), {
