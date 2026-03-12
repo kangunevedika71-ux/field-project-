@@ -6,7 +6,7 @@ function createCharts(instagram, youtube, whatsapp, yes, no, cgpa, social) {
             labels: ["Instagram", "YouTube", "WhatsApp"],
             datasets: [{
                 data: [Number(instagram), Number(youtube), Number(whatsapp)],
-                backgroundColor: ["#E1306C", "#FF0000", "#25D366"]
+                backgroundColor: [['#F94144', '#F9C74F', '#90BE6D']]
             }]
         }
     });
